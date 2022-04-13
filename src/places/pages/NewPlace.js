@@ -54,8 +54,11 @@ const NewPlace = () => {
       await sendRequest(
         "http://localhost:5000/api/places/newPlace",
         "POST",
-        formData
-      );
+        formData,
+        {
+          Authorization: `BEARER ${auth.token}`,
+        }
+      );  
       history.push("/");
     } catch (err) {}
   };
