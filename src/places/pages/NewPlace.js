@@ -51,13 +51,13 @@ const NewPlace = () => {
       formData.append("address", formState.inputs.address.value);
       formData.append("image", formState.inputs.image.value);
       await sendRequest(
-        "http://localhost:5000/api/places/newPlace",
+        `${process.env.REACT_APP_BACKEND_URL}/places/newPlace`,
         "POST",
         formData,
         {
           Authorization: `BEARER ${auth.token}`,
         }
-      );  
+      );
       history.push("/");
     } catch (err) {}
   };
